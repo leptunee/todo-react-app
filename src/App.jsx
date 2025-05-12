@@ -63,7 +63,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-cover bg-center bg-no-repeat transition-all duration-300 bg-[url('https://source.unsplash.com/random/1600x900/?nature,light')] dark:bg-[url('https://source.unsplash.com/random/1600x900/?nature,dark')]">
-      <div className="w-full max-w-xl rounded-3xl p-8 bg-white/90 dark:bg-gray-900 shadow-2xl backdrop-blur-lg border border-white/30 dark:border-white/20">
+      <div className="w-full max-w-xl rounded-3xl p-8 bg-white/90 dark:bg-gray-800 shadow-lg dark:shadow-inner dark:shadow-white/10 backdrop-blur-lg border border-white/30 dark:border-white/20">
         <button
           onClick={toggleTheme}
           className="absolute top-6 right-6 flex items-center gap-2 text-xs bg-black/80 dark:bg-white/10 text-white dark:text-gray-800 px-4 py-2 rounded-full shadow hover:scale-105 transition-all duration-300"
@@ -71,9 +71,8 @@ function App() {
           {isDarkMode ? (
             <FaSun className="text-yellow-300" />
           ) : (
-            <FaMoon className="text-gray-800" />
+            <FaMoon className="text-yellow-300" />
           )}
-          {isDarkMode ? "亮色模式" : "暗色模式"}
         </button>
 
         <h1 className="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white">

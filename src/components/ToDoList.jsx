@@ -7,7 +7,7 @@ function ToDoList({
     onToggleComplete,
     emptyState = (
         <div className="text-gray-500 text-center mt-6 text-sm">
-            没有任务，添加一个吧！
+            还没有任务...
         </div>
     ),
 }) {
