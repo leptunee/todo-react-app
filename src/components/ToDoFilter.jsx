@@ -1,27 +1,27 @@
-import React from 'react';
-
+// components/ToDoFilter.jsx
 function ToDoFilter({ currentFilter, onFilterChange }) {
-    return (
-        <div className="flex gap-2 my-4">
-            {['all', 'active', 'completed'].map((type) => (
-                <button
-                    key={type}
-                    onClick={() => onFilterChange(type)}
-                    className={`px-4 py-2 rounded-full border transition-colors 
-        ${currentFilter === type
-                            ? 'bg-blue-500 text-white border-blue-500'
-                            : 'bg-white text-gray-600 hover:bg-gray-50 border-gray-200'
-                        }`}
-                >
-                    {{
-                        all: 'All',
-                        active: 'Active',
-                        completed: 'Completed'
-                    }[type]}
-                </button>
-            ))}
-        </div>
-    );
+  const filters = [
+    { key: "all", label: "全部" },
+    { key: "active", label: "未完成" },
+    { key: "completed", label: "已完成" },
+  ];
+
+  return (
+    <div className="flex justify-center gap-3 my-4">
+      {filters.map(({ key, label }) => (
+        <button
+          key={key}
+          onClick={() => onFilterChange(key)}
+          className={`px-4 py-1.5 rounded-full text-sm font-medium border shadow-sm backdrop-blur-md transition-all
+            ${currentFilter === key
+              ? "bg-blue-500 text-white border-blue-500"
+              : "bg-white/50 dark:bg-white/10 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-white/20 hover:bg-white/70 dark:hover:bg-white/20"}`}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  );
 }
 
 export default ToDoFilter;

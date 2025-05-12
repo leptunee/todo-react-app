@@ -1,31 +1,32 @@
+// components/ToDoInput.jsx
 import { useState } from "react";
 
-function ToDoInput({ onAdd }) {
+function ToDoInput({ onAdd, inputClass = '', buttonClass = '' }) {
     const [inputValue, setInputValue] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
         onAdd(inputValue);
-        setInputValue("");// 清空输入框
+        setInputValue("");
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex w-full max-w-sm">
+        <form onSubmit={handleSubmit} className="flex w-full max-w-xl mb-4">
             <input
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                className="flex-1 p-2 rounded-1 border border-gray-300"
-                placeholder="Enter a new task..."
+                placeholder="输入任务..."
+                className={`flex-1 px-4 py-2 text-sm outline-none rounded-l-xl bg-white/60 dark:bg-gray-700 border border-gray-300 dark:border-white/20 text-gray-800 dark:text-white focus:ring-2 focus:ring-blue-400 transition-all ${inputClass}`}
             />
             <button
                 type="submit"
-                className="bg-blue-500 text-white px-4 rounded-r hover:bg-blue-600"
+                className={`px-5 py-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 text-white rounded-r-xl shadow transition-all ${buttonClass}`}
             >
-                Add
+                添加
             </button>
         </form>
     );
-} 
+}
 
 export default ToDoInput;

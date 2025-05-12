@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+body {
+  @apply font-sans;
+  font-family: 'Inter', sans-serif;
+  background-image: url('https://source.unsplash.com/random/1600x900/?nature,light');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden; /* 避免滚动条 */
+}
+
+html.dark {
+  background-image: url('https://source.unsplash.com/random/1600x900/?nature,dark');
+}
