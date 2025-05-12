@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useEffect } from "react";
 import ToDoInput from "./components/ToDoInput";
 import ToDoList from "./components/ToDoList";
 import "./App.css";
+import ToDoFilter from "./components/ToDoFilter";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -39,12 +40,31 @@ function App() {
     );
   };
 
+  // 筛选器以及筛选逻辑
+  const [filter, setFilter] = useState("all"); // all, active, completed
+  const filteredTodos = useMemo(() =>
+    todos.filter((todo) => {
+    switch (filter) {
+      case "active":
+        return !todo.completed;
+      case "completed":
+        return  todo.completed;
+      default:
+        return true;
+    }
+  }),
+  [todos, filter]);
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
       <h1 className="text-3xl font-bold mb-4">ToDo List</h1>
       <ToDoInput onAdd={addTodo} />
+      <ToDoFilter 
+        currentFilter={filter}
+        onFilterChange={setFilter}
+      />
       <ToDoList
-        todos={todos}
+        todos={filteredTodos}
         onDelete={deleteTodo}
         onToggleComplete={toggleComplete}
       />

@@ -16,7 +16,7 @@ function ToDoInput({ onAdd }) {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 className="flex-1 p-2 rounded-1 border border-gray-300"
-                placeholder="Enter a new task"
+                placeholder="Enter a new task..."
             />
             <button
                 type="submit"

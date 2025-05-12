@@ -24,7 +24,7 @@ function ToDoItem({ todo, onDelete, onToggleComplete }) {
                     />
                     <div
                         className={`w-5 h-5 border-2 rounded-md mr-3 flex items-center justify-center
-              ${todo.completed
+                ${todo.completed
                                 ? "bg-green-500 border-green-500"
                                 : "bg-white border-gray-300"
                             }`}
