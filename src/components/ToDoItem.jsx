@@ -13,7 +13,9 @@ function ToDoItem({ todo, onDelete, onToggleComplete }) {
                         className="hidden"
                     />
                     <div className={`w-5 h-5 border-2 rounded-md flex items-center justify-center transition-colors duration-300
-            ${todo.completed ? 'bg-green-500 border-green-500' : 'bg-white border-gray-300'}`}>
+            ${todo.completed 
+  ? 'bg-green-500 border-green-500' 
+  : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600'}`}>
                         {todo.completed && (
                             <svg className="w-3 h-3 text-white fill-current" viewBox="0 0 20 20">
                                 <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
